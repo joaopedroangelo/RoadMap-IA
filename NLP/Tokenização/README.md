@@ -1,57 +1,104 @@
-# Definição - Tokenização
+# Tokenização
 
-Tokenização, no contexto do Processamento de Linguagem Natural (PLN), é o processo de dividir um texto em partes menores chamadas tokens, que podem ser palavras, caracteres ou unidades intermediárias.
+---
+## 1. Definição e Fundamentos
 
-Esse processo é essencial porque torna o texto mais estruturado e compreensível para as máquinas. Assim como ensinamos uma criança a ler começando por letras e sílabas antes de chegar a frases, a tokenização "ensina" os computadores a entender a linguagem humana de forma incremental.
+**Tokenização**, no contexto do Processamento de Linguagem Natural (PLN), é o processo de dividir um texto em partes menores chamadas **tokens**. Esses tokens podem ser palavras, caracteres ou unidades intermediárias, dependendo da estratégia utilizada.
 
-#### Exemplo
+Esse processo é essencial porque torna o texto mais estruturado e compreensível para os algoritmos de IA. Assim como uma criança aprende a ler por meio de letras e sílabas antes de entender frases completas, a tokenização ajuda os modelos computacionais a entenderem a linguagem humana em partes menores.
 
-> Frase: "Os chatbots são úteis.
+---
+## 1.1 Exemplo
+
+Frase:
+
+> "Os chatbots são úteis."
+
+Tokenização por palavras:
 
 ```python
 ["Os", "chatbots", "são", "úteis"]
 ```
 
-Esse é um exemplo de tokenização por palavras, onde os espaços servem como delimitadores.
+Neste exemplo, os espaços em branco são utilizados como delimitadores para separar as palavras.
 
-No entanto, existem outras formas de tokenizar um texto, como por caracteres ou subpalavras, dependendo do idioma e do objetivo da tarefa.
+---
+## 2. Tipos de Tokenização
+
+| Tipo                   | Descrição                                              | Quando Usar                                  | Exemplo com “Chatbots”                       |
+| ---------------------- | ------------------------------------------------------ | -------------------------------------------- | -------------------------------------------- |
+| **Palavras**           | Divide o texto com base em espaços e pontuação.        | Análises gerais, modelos simples.            | `["Chatbots", "são", "úteis"]`               |
+| **Caracteres**         | Quebra o texto em letras individuais.                  | Tarefas detalhadas ou análises ortográficas. | `["C", "h", "a", "t", "b", "o", "t", "s"]`   |
+| **Subpalavras**        | Segmenta palavras em unidades menores (subwords).      | Modelos neurais como BERT e GPT.             | `["Chat", "bots"]` ou `["Cha", "tbo", "ts"]` |
+| **Baseada em Modelos** | Utiliza regras aprendidas e conhecimento de linguagem. | Textos complexos ou idiomas sem espaços.     | Ex.: spaCy, NLTK, transformers               |
+
+---
+## 3. Desafios da Tokenização
+
+- **Ambiguidade**<br>
+   A frase “Estou morrendo de fome” pode ser uma expressão figurada ou literal.
+   Da mesma forma, o ponto final (.) pode indicar o fim de uma frase ou fazer parte de uma abreviação como “Dr.”.
+
+- **Idiomas Sem Delimitadores Explícitos**<br>
+   Em idiomas como chinês, japonês e tailandês, as palavras não são separadas por espaços.
+   Isso exige modelos especializados para identificar corretamente os limites entre palavras.
 
 
 ---
-# Tipos de Tokenização
+## 4. Ferramentas Populares
 
-| Tipo                         | Descrição | Quando Usar | Exemplo com “Chatbots” |
-|-----------------------------|-----------|-------------|-------------------------|
-| **Tokenização de Palavras** | Divide o texto com base em espaços e pontuação. Funciona bem em idiomas com separações claras. | Análises gerais, modelos simples | `["Chatbots", "são", "úteis"]` |
-| **Tokenização de Caracteres** | Quebra o texto em caracteres individuais. | Análise ortográfica, tarefas muito detalhadas | `["C", "h", "a", "t", "b", "o", "t", "s"]` |
-| **Tokenização de Subpalavras** | Divide em unidades menores que palavras completas. Usada para reduzir o vocabulário e tratar palavras desconhecidas. | Modelos neurais como BERT, GPT | `["Chat", "bots"]` ou `["Cha", "tbo", "ts"]` |
-| **Baseada em Modelos de Linguagem** | Usa regras e aprendizado prévio para tokenizar de forma mais precisa. | Textos complexos, idiomas sem espaços claros | spaCy, NLTK, transformers (BERT, GPT) |
+* **[NLTK](https://www.nltk.org/)**<br>
+  Biblioteca em Python amplamente utilizada na área acadêmica. Suporta tokenização de palavras, sentenças e oferece diversos recursos de PLN.
 
-
----
-# Desafios da Tokenização
-
-1. **Ambiguidade**
-
-    A frase "Estou morrendo de fome" pode ser interpretada literalmente ou como uma hipérbole.
-
-    Outro exemplo: O ponto final (.) pode indicar fim de frase ou fazer parte de uma abreviação como "Dr.".
-
-2. **Idiomas Sem Delimitadores Claros**
-
-    Idiomas como chinês, japonês e tailandês não usam espaços para separar palavras, dificultando a tokenização.
-
-    Existem modelos de Linguagem adequados para tokenizar essas línguas.
+* **[Hugging Face Transformers](https://huggingface.co/transformers/)**<br>
+  Inclui tokenizadores otimizados e pré-treinados para modelos como BERT, GPT, RoBERTa e outros. Essencial para aplicações modernas em IA.
 
 
 ---
-# Ferramentas
+## 5. Exemplos com NLTK
 
-1. **NLTK**
-    
-    Uma biblioteca popular em Python, oferece suporte à tokenização de palavras e frases.
-    É bastante utilizada em ambientes acadêmicos e em protótipos.
+### 5.1 Tokenização de Palavras com NLTK
 
-2. **Hugging Face Transformers**
+```python
+from nltk.tokenize import word_tokenize
 
-    Inclui tokenizadores avançados usados em modelos como BERT, GPT, RoBERTa.
+texto = "Os chatbots são úteis."
+tokens = word_tokenize(texto, language='portuguese')
+print(tokens)  # ['Os', 'chatbots', 'são', 'úteis', '.']
+```
+
+---
+### 5.2 Tokenização de Frases com NLTK
+
+```python
+from nltk.tokenize import sent_tokenize
+
+texto = "Os chatbots são úteis. Eles ajudam em diversas tarefas."
+frases = sent_tokenize(texto, language='portuguese')
+print(frases)  # ['Os chatbots são úteis.', 'Eles ajudam em diversas tarefas.']
+```
+
+---
+### 5.3 Tokenização de Caracteres (Simples)
+
+```python
+texto = "Chatbots"
+tokens = list(texto)
+print(tokens)  # ['C', 'h', 'a', 't', 'b', 'o', 't', 's']
+```
+
+---
+## 6. Exemplos com Hugging Face
+
+#### GPT-2
+```python
+from transformers import GPT2Tokenizer
+
+tokenizer = GPT2Tokenizer.from_pretrained("gpt2")
+
+texto = "Chatbots are useful"
+tokens = tokenizer.tokenize(texto)
+print(tokens)  # ['Chat', 'bots', ' are', ' useful']
+
+```
+
