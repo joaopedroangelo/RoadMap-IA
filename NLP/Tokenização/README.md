@@ -1,4 +1,4 @@
-## Definição - Tokenização
+# Definição - Tokenização
 
 Tokenização, no contexto do Processamento de Linguagem Natural (PLN), é o processo de dividir um texto em partes menores chamadas tokens, que podem ser palavras, caracteres ou unidades intermediárias.
 
@@ -18,7 +18,7 @@ No entanto, existem outras formas de tokenizar um texto, como por caracteres ou 
 
 
 ---
-## Tipos de Tokenização
+# Tipos de Tokenização
 
 | Tipo                         | Descrição | Quando Usar | Exemplo com “Chatbots” |
 |-----------------------------|-----------|-------------|-------------------------|
@@ -29,7 +29,7 @@ No entanto, existem outras formas de tokenizar um texto, como por caracteres ou 
 
 
 ---
-## Desafios da Tokenização
+# Desafios da Tokenização
 
 1. **Ambiguidade**
 
@@ -45,16 +45,11 @@ No entanto, existem outras formas de tokenizar um texto, como por caracteres ou 
 
 
 ---
-## Ferramentas
+# Ferramentas
 
 1. **NLTK**
     
-    Uma biblioteca popular em Python, oferece suporte à tokenização de:
-
-    Palavras (word_tokenize)
-
-    Frases (sent_tokenize)
-
+    Uma biblioteca popular em Python, oferece suporte à tokenização de palavras e frases.
     É bastante utilizada em ambientes acadêmicos e em protótipos.
 
 2. **Hugging Face Transformers**
