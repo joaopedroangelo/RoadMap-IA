@@ -26,10 +26,10 @@ Veja outros exemplos de Ambientes de Tarefas para diferentes tipos de Agentes:
 1. **Completamente Observável versus Parcialmente Observável**:<br>
     Se os sensores de um agente
 permitem acesso ao estado completo do ambiente em cada instante, dizemos que o ambiente de tarefa
-é completamente observável
+é completamente observável.
 
 2. **Agente Único versus Multiagente**:<br>
-    Essa distinção parece fácil e talvez realmente seja. Mas tem algo sutil. O Agente Motorista de Táxi, por exemplo, se ele encarar os outros motoristas como apenas entidades físicas, então ele é um agente único. Mas se ele encarar os outros motoristas como agentes, então estamos em um sistema multiagente. Além disso, o ambiente multiagente pode ser diferenciado entre Multiagente Cooperativo e Multiagente Colaborativo.
+    Essa distinção parece fácil e talvez realmente seja. Mas tem algo sutil. O Agente Motorista de Táxi, por exemplo, se ele encarar os outros motoristas como apenas entidades físicas, então ele é um agente único. Mas se ele encarar os outros motoristas como agentes, então estamos em um sistema multiagente. Além disso, o ambiente multiagente pode ser diferenciado entre Multiagente Cooperativo e Multiagente Competitivo.
 
 3. **Determinístico versus Estocástico**:<br>
     Se o próximo estado do ambiente é completamente

@@ -1,6 +1,6 @@
 # Agente Inteligente
 
-> Discutimos a natureza dos agentes, a diversidade de
+> Aqui, discutimos a natureza dos agentes, a diversidade de
 ambientes e a consequente variedade de tipos de agentes.
 
 ---
