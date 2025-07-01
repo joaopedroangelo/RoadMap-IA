@@ -60,4 +60,106 @@ A área de PLN divide-se em duas sub-áreas:<br>
 2. É necessário realizar uma série de tarefas incrementais para o ponto acima
 3. O processamento de linguagem natural ocorre em camadas
 
-![alt](..)
+![alt](../../Imagens/CamadasPLN.png)
+
+---
+## Word e Token
+
+**Word**: é a menor unidade de significado que pode ocorrer isoladamente.
+
+**Token**: menor sequência delimitada por certos caracteres pré-definidos (espaço, vírgula, ponto final...)
+
+**Tokenização**: dividir uma cadeia de caracteres em uma sequências de tokens.
+
+---
+## Morfologia
+
+Morfologia é o estudo das palavras, de como elas são formadas e de sua relação com outras palavras na mesma língua. Ela analisa a estrutura das palavras e suas partes, como radicais, raízes, prefixos e sufixos.
+
+**Morfema**: é a menor unidade linguística que possui significado semântico.
+
+**Exemplo**:
+
+Temos a palavra: Incríveis
+
+Agora observe a análise morfológica:
+
+**in** --> prefixo (morfema que indica negação)<br>
+**crível** --> raiz (do verbo "crer", com o sufixo -ível que forma adjetivos)<br>
+**-eis** --> desinência de número plural
+
+> Curiosidade: Ingles e Chinês são comumente referidas como línguas morfologicamente pobres. Enquanto o Português, é morfologicamente rico.
+
+> I will go, We will go, You will go...
+
+> Eu irei, Nós iremos, Você irá...
+
+Dentro da Morfologia, temos a **Sintaxe**.
+
+Sintaxe diz respeito à maneira pela qual as palavras podem ser combinadas para formar frases (gramaticalmente corretas).
+
+❌ "Livro o ela leu interessante."<br>
+✅ "Ela leu o livro interessante."
+
+A sintaxe define a ordem padrão: Sujeito + Verjo + Objetivo + Adjunto
+
+Agora vamos subir de camada. Estamos na camada de Morfologia.
+
+Vamos para a camada de Classes Gramaticais.
+
+---
+## Classes Gramaticais
+
+Frase: "Ele comeu uma maçã."
+
+**Ele** --> Pronome<br>
+**comeu** --> Verbo<br>
+**uma** --> Artigo<br>
+**maçã** --> Substantivo
+
+Classes:<br>
+1. Substantivo
+2. Verbo
+3. Adjetivo
+4. Pronome
+5. Advérbio
+6. Artigo
+
+A posição de uma palavra em uma frase, muda a sua classe:<br>
+"Eu acordei cedo hoje."<br>
+"Eu cedo meu lugar".
+
+Na 1ª frase, fala sobre acordar cedo. A palavra cedo é da classe advérbio.
+
+Na 2ª frase, fala sobre ceder o lugar. A palavra cedo é da classe verbo.
+
+---
+## Chunking - Fragmentação
+
+Identificar combinações de palavras que formam unidades coesas, ou seja, que têm sentido quando combinadas.
+
+Frase Completa: "O gato preto pulou o muro alto"
+
+Chunking: 
+1. "O gato preto"
+2. "pulou"
+3. "o muro alto"
+
+---
+## Parsing - Análise
+
+Valida a estrutura sintática de uma frase.
+
+![alt text](../../Imagens/ParseTree.png)
+
+---
+## Semântica
+
+Diz respeito ao significado das palavras e à forma como combinamos palavras em frases.
+
+---
+## Pragmática
+
+A Pragmática corresponde a um dos ramos da linguística encarregada dos estudos acerca dos discursos que ocorrem em diferentes situações comunicativas, mediados por fatores contextuais, absorvendo, assim, conceitos de outras áreas, tal como a sintaxe (construção dos enunciados) e a semântica (significados).
+
+Com efeito, a pragmática é a área que se debruça, principalmente, nos objetivos da comunicação, ou seja, na prática linguística (usos da língua).
