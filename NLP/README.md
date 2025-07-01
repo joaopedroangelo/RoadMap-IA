@@ -6,6 +6,4 @@ Este diretório contém os principais tópicos introdutórios de Processamento d
 |-------|----------------|------------------------------------------------------------|--------------------------|
 | 0     | Ementa         | O que se estuda em PLN?                                    | [`Ementa`](./Ementa/README.md) |
 | 1     | Introdução     | O que é PLN?                                               | [`Introdução`](./Introdução/) |
-| 2     | Regex          | Introdução a expressões regulares para tratar textos       | [`Regex`](./Regex) |
-| 3     | Normalização   | Técnicas de limpeza e padronização de textos antes da tokenização | [`Normalização`](./Normalização) |
-| 4     | Tokenização    | Separação de texto em unidades menores (tokens)            | [`Tokenização`](./Tokenização) |
+| 2     | Processamento de Texto | Tokenização, Normalização e Segmentação | [`Processamento Textual`](./ProcessamentoTextual/) |
