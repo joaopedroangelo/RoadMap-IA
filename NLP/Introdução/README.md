@@ -1,7 +1,35 @@
+# Introdução
+
+> O Processamento de Linguagem Natural (PLN) é um campo de pesquisa que tem como objetivo investigar e propor métodos de processamento computacional da linguagem humana.
+
+---
+## O que é uma Linguagem Natural?
+
+Qualquer linguagem que tenha evoluído naturalmente entre os humanos por meio do uso e da repetição, sem planejamento consciente ou premeditação.
+
+O adjetivo "Natural", na sigla, se refere às línguas faladas pelos humanos, distinguido-as das demais linguagens (matemáticas, gestuais, de programação...).
+
+---
+## Características de uma Linguagem Natural
+
+1. Origem Humana Espontânea
+2. Ambiguidade
+3. Contextualidade
+4. Regida por regras flexíveis
+5. Evolução Contínua
+
+---
 ## O que é PLN?
 
-O Processamento de Linguagem Natural (PLN) é um campo de pesquisa que tem como objetivo investigar e propor métodos de processamento computacional da linguagem humana. O adjetivo "Natural", na sigla, se refere às línguas faladas pelos humanos, distinguido-as das demais linguagens (matemáticas, gestuais, de programação...).
+É um campo da computação, inteligência artificial e linguística computacional que se ocupa das interações entre computadores e as linguagens humanas (naturais).
 
+---
+## Contexto Histórico
+
+1. Desafio de Turing
+2. Estruturas Sintáticas, de Chomsky
+3. Modelos de Linguagem
+4. LLMs
 
 ---
 ## Desafios do Processamento da Linguagem Natural
@@ -10,24 +38,26 @@ Em PLN buscam-se soluções para problemas computacionais que requerem o tratame
 
 Recursos de fala, como a entonação, o volume, o sotaque, podem tanto aumentar a dificuldade do reconhecimento ou a síntese, como também facilitar o reconhecimento de sentimentos ou intenções do falante.
 
+Vejas alguns desafios do Processamento de Linguagem Natural:<br>
+1. Ambiguidade, tanto em textos como em imagens e em pontuações
+2. Variantes não padrão da língua
+3. Neologismos (zapear, retuitar...)
+4. Expressões Idiomáticas
 
 ---
 ## Principais Sub-Áreas do PLN
 
 A área de PLN divide-se em duas sub-áreas:<br>
 
-1. Interpretação de Linguagem Natural;<br>
+1. Entendimento de Linguagem Natural;<br>
 2. Geração de Linguagem Natural;<br>
 
 
 ---
-## Como os Modelos Atuais Lidam com a Linguagem 
+## Camadas de PLN
 
-A maioria das estratégias processa caracteres e não unidades linguísticas. Muitas estratégias geram modelos com base em coocorrência e contexto de ocorrência de palavras e frases, ou seja, são abordagens baseadas em padrões de caracteres.
+1. Compreender a semântica é uma tarefa difícil
+2. É necessário realizar uma série de tarefas incrementais para o ponto acima
+3. O processamento de linguagem natural ocorre em camadas
 
-Um modelo neural, por exemplo, não sabe que "casa" pode significar o lugar onde alguém mora. Desse modo, podemos dizer que as estratégias usadas na maioria das aplicações de PLN não aprendem a língua, mas apenas aprendem a reproduzir e, às vezes, genelarizar o que aprenderam em um corpus de treinamento.
-
-
----
-## Limitações Atuais
-Muita atenção tem sido dada aos algoritmos de aprendizado de máquina e às arquiteturas neurais, mas nem tanta atenção assim tem sido dada aos formalismos de representação semântica. A linguagem natural é muito mais complexa de se aprender e compreender, do que uma simples contagem de frequências e coocorrências. Assim, apesar de muito esforço sendo empregado na investigação e evolução de métodos neurais, o conhecimento linguístico e de uso da língua ainda não foi completamente representado por nenhum dos métodos atuais. Por isso, o processamento completo só será possível com formalismos que incorporam estruturas semânticas explíticas e não só modelos probabilísticos.
+![alt](..)
