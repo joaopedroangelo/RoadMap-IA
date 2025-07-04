@@ -7,7 +7,7 @@
 
 **Token**: um elemento do vocabulário.
 
-**Type**: uma instância, uma palavra, não conta repetições
+**Type**: uma instância de uma palavra, não conta repetições.
 
 ---
 ## Corpus
