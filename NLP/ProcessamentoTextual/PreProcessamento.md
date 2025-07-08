@@ -1,11 +1,70 @@
 # Pré-Processamento
 
-**Ordem de Pré-Processamento Textual**:
+---
+## Contexto 
 
-- Eliminar identificadores e URLs usando Expressões Regulares.
+O processamento de linguagem natural (PLN) permite que os computadores interpretem a linguagem humana. Todos os computadores podem entender códigos binários, mas não entendem a linguagem natural, escrita e falada pelas pessoas.
+
+Porém, um computador com Processamento de Linguagem Natural pode ser capaz de entender a frase acima.
+
+Mas antes que o texto seja processado pelos modelos, é preciso que algumas etapas de pré-processamento sejam feitas.
+
+O pré-processamento de PLN é a preparação do texto bruto para análise por um programa ou modelo de aprendizado de máquina. O pré-processamento de PLN é necessário para colocar o texto em um formato que os modelos de aprendizagem profunda possam analisar com mais facilidade.
+
+---
+## Ordem de Pré-Processamento Textual
+
+- Eliminar identificadores e URLs usando Expressões Regulares
+- Conversão para minúsculas.
 - Tokenizar as strings em palavras.
 - Remover Stop words e pontuação.
 - Stemming vs. Lemmatization.
+
+Abaixo, estão exemplos dessas técnicas de pré-processamento usando a biblioteca NLTK.
+
+Essa biblioteca inclui um conjunto diversificado de corpora que podem ser lidos com nltk.corpus.
+
+**NLTK**: O Natural Language Toolkit é uma plataforma completa
+que contém mais de 50 corpora e recursos lexicais. Isso também
+fornece as ferramentas, interfaces e métodos necessários para processar
+e analisar dados de texto.
+
+---
+## Setup
+
+```python
+import nltk                                # Biblioteca Python para PLN
+from nltk.corpus import twitter_samples    # amostras de tweets da NLTK
+import random                              # gerador de número pseudo-aleatório
+
+
+nltk.download('stopwords')                 # download stopwords - NLTK
+import re                                  # biblioteca para expressões regulares
+import string                              # operações em string
+
+from nltk.corpus import stopwords          # módulo stopwords que vem no NLTK
+from nltk.stem import PorterStemmer        # módulo para stemming
+from nltk.tokenize import TweetTokenizer   # módulo para 'tokenizar' strings
+
+# download dataset de amostras do twitter
+nltk.download('twitter_samples')
+
+# Amostra selecionada
+tweet = all_positive_tweets[102]
+print(tweet)
+@zaynmalik prince charming on stage :) x https://t.co/OnVFhzt5fZ
+```
+
+---
+## Eliminar identificadores e URLs
+
+```python
+# remove hyperlinks
+tweet2 = re.sub(r'https?://[^\s\n\r]+', '', tweet2)
+
+print(tweet)
+print(tweet2)
+```
 
 ---
 ## Tokenização
@@ -40,49 +99,29 @@ Em alguns casos, a tokenização também pode envolver a normalização do texto
     Muitas bibliotecas de PLN, como spaCy e NLTK, fornecem modelos de linguagem pré-treinados que são capazes de realizar a tokenização de forma mais precisa e sofisticada.
 
 ---
-## Tokenização com spacy
+## Tokenização com NLTK
 
 ```python
-!pip install -U spacy
-!python -m spacy download pt_core_news_sm
+# Inicializando a classe tokenizer 
+tokenizer = TweetTokenizer(preserve_case=True, strip_handles=True,
+                               reduce_len=True)
 
-import spacy
-import pandas as pd
+# tokenize tweets
+tweet_tokens = tokenizer.tokenize(tweet2)
 
-# Carregando o modelo de idioma em português
-nlp = spacy.load('pt_core_news_sm')
+print()
+print('Tweet tokenizado:')
+print(tweet_tokens)
 
-# Texto de exemplo
-texto = "Os alunos da faculdade de Engenharia de Software estão ansiosos para o início do curso!"
-
-# Aplicando a tokenização
-doc = nlp(texto)
-
-# Extraindo os tokens
-tokens = [token.text for token in doc]
-print("Tokens:", tokens)
-
-# Coletando informações dos tokens em um único DataFrame
-dados_tokens = []
-for token in doc:
-    dados_tokens.append({
-        'Token': token.text,
-        'Índice de início': token.idx,
-        'É pontuação?': token.is_punct,
-        'É espaço em branco?': token.is_space,
-        'Parte do discurso': token.pos_,
-        'Dependência sintática': token.dep_
-    })
-
-# Criando DataFrame com os dados dos tokens
-df_tokens = pd.DataFrame(dados_tokens)
-
-# Exibindo o DataFrame
-df_tokens
+Tweet tokenizado:
+['prince', 'charming', 'on', 'stage', ':)', 'x']
 ```
 
-Output:<br>
-![alt text](../../Imagens/OutputTokenizacaoSpacy.png)
+> O método preserve_case indica se você quer manter a capitalização original da entrada e por padrão está definido como True. Como o tweet originalmente está todo escrito com letras minúsculas não será necessário definir como False.
+
+> O método strip_handles, por padrão, é definido como False. Ele especifica se os identificadores de texto do Twitter usados ​​no método tokenize devem ser removidos.
+
+> O método reduce_len, por padrão, é definido como False. Ele especifica se as sequências de caracteres repetidas de comprimento 3 ou superior devem ser substituídas por sequências de comprimento 3.
 
 ---
 ## Tokenização baseada em Sub-Palavras
@@ -135,20 +174,65 @@ Exemplos comuns de stop words incluem:
 - Pronomes: eu, tu, ele, ela, nós, vós, eles, elas, etc.
 - Verbos auxiliares: ser, estar, ter, haver, etc. 
 
+```python
+print(tweet_tokens)
+
+tweets_clean = []
+
+for word in tweet_tokens: # analisa cada palavra da lista de tokens
+    if (word not in stopwords_english and  # remove stopwords
+        word not in string.punctuation):  # remove pontuação
+        tweets_clean.append(word)
+
+print('stop words e pontuções removidas:')
+print(tweets_clean)
+
+['prince', 'charming', 'on', 'stage', ':)', 'x'] # tweet antes
+
+stop words e pontuções removidas:
+['prince', 'charming', 'stage', ':)', 'x'] # tweet depois
+```
+
 ---
-## Stemming
+## Stemming vs Lemmatization
 
-É um algoritmo que remove afixos (sufixos e prefixos) de palavras, buscando sua raiz comum. Por exemplo, as palavras "correr", "correndo", "corria" seriam reduzidas a "corr". 
+Stemming é simplesmente transformar qualquer palavra em seu radical base, que você pode definir como o conjunto de caracteres usados ​​para construir a palavra e seus derivados. Stemming ajuda a reduzir o número de palavras no texto e simplificar o vocabulário.
 
-O stemming utiliza regras para identificar e remover sufixos comuns, tentando encontrar a forma base da palavra. Ele não se preocupa com o contexto da palavra na frase ou com sua forma gramatical correta, apenas com a redução morfológica. 
+> casinha -> cas<br>
+> casebra -> cas
 
-Antes do stemming, os usuários devem tokenizar os dados de texto bruto.
+```python
+print(tweets_clean)
 
-Embora pesquisas evidenciem o papel do stemming na melhoria da precisão de tarefas do PLN, o stemming apresenta dois problemas principais que os usuários precisam observar. Overstemming ocorre quando duas palavras semanticamente distintas são reduzidas à mesma raiz, sendo, assim, confundidas. Understemming ocorre quando duas palavras semanticamente relacionadas não são reduzidas à mesma raiz.
+# Inicializando a classe stemming 
+stemmer = PorterStemmer() 
 
----
-## Lematização
+# Lista vazia para armazenar os stems
+tweets_stem = [] 
 
+for word in tweets_clean:
+    stem_word = stemmer.stem(word)  # palavra com stemming 
+    tweets_stem.append(stem_word)  # adiciona a lista
+
+print('Palavras depois de user stemming')
+print(tweets_stem)
+
+
+['prince', 'charming', 'stage', ':)', 'x'] # Tweet antes
+
+stemmed words:
+['princ', 'charm', 'stage', ':)', 'x'] # Tweet depois de usar stemming
+```
+
+A redução de ‘charming’ para ‘charm’ realmente faz sentido, mas e a de ‘prince’ para ‘princ’? Essa palavra ao menos existe? O contexto pode mudar totalmente.
+
+Com lemmatization, podemos reduzir as palavras para outra que realmente existam e não prejudique o contexto do texto. Assim, teríamos:
+
+> achieve -> achieve
+
+> achieving -> achieve
+
+Apesar de ser uma melhor opção, não é tão rápido e simples como o stemming.
 
 ---
 ## Aprofundamento
