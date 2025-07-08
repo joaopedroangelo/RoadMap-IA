@@ -87,8 +87,7 @@ def agente_aspirador_reativo(posicao, sujeira) -> acao:
         else return A
 ```
 
-> Programa do agente para um agente reativo simples no ambiente de aspirador de pó de
-dois estados.
+> Programa para um agente reativo simples no ambiente de aspirador.
 
 ![alt text](../Imagens/AgenteReativoSimples.png)
 
