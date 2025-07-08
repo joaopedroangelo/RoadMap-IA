@@ -6,4 +6,4 @@ Este diretório contém os principais tópicos introdutórios de Processamento d
 |-------|----------------|------------------------------------------------------------|--------------------------|
 | 0     | Ementa         | O que se estuda em PLN?                                    | [`Ementa`](./Ementa/README.md) |
 | 1     | Introdução     | O que é PLN?                                               | [`Introdução`](./Introdução/) |
-| 2     | Processamento de Texto | Tokenização, Normalização e Segmentação | [`Processamento Textual`](./ProcessamentoTextual/) |
+| 2     | Processamento de Texto | Pré-Processamento dos dados antes de serem usados pelos modelos. | [`Processamento Textual`](./ProcessamentoTextual/) |
