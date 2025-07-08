@@ -50,7 +50,7 @@ esperado do agente.
 ---
 ## Racionalidade
 
-A definição do que é racional em qualquer instante dado depende de quatro fatores:
+A definição do que é racional depende de quatro fatores:
 
 - A medida de desempenho que define o critério de sucesso.
 - O conhecimento prévio que o agente tem do ambiente.
