@@ -9,14 +9,11 @@ Até agora, fizemos referência aos agentes descrevendo-os apenas como entidades
 
 Agora, temos que seguir em frente e descrever o comportamento interno desses agentes.
 
-O trabalho da IA é projetar o programa do agente que implementa a função do agente, que mapeia percepções em ações.
+O trabalho da IA é projetar o programa do agente que é a implementação concreta de sua função.
 
 Esse programa do agente deve ser executado em um tipo de dispositivo de computação com sensores e atuadores.
 
-> Agente = arquitetura + programa
-
-> É óbvio que o programa que escolhermos tem de ser apropriado para a arquitetura. Se o programa
-recomendar ações como Caminhar, é melhor que a arquitetura tenha pernas.
+> Agente = software + hardware
 
 ---
 ## Programa do Agente
@@ -91,9 +88,6 @@ def agente_aspirador_reativo(posicao, sujeira) -> acao:
 
 ![alt text](../Imagens/AgenteReativoSimples.png)
 
-> Um agente reativo simples age de acordo com uma regra cuja condição corresponde
-ao estado atual definido pela percepção.
-
 ---
 ### 2. Agente Reativo baseado em Modelo
 
@@ -164,13 +158,6 @@ descritas anteriormente, pelo fato de envolver consideração do futuro, tanto d
 eu fizer isso e aquilo?” e “Isso me fará feliz?”. Nos projetos de agentes reativos, essas informações
 não são representadas de forma explícita porque as regras internas fazem o mapeamento direto de
 percepções para ações.
-
-A tomada de decisão envolve a consideração do futuro, o que não acontece com o uso de regras de condição-ação.
-
-O comportamento do agente baseado em objetivos pode ser alterado com
-facilidade para ir a um destino diferente, simplesmente especificando o destino como objetivo. As
-regras do agente reativo sobre quando fazer curvas e quando seguir em frente só funcionarão para um
-único destino; todas elas terão de ser substituídas se for preciso ir para algum outro lugar.
 
 O agente que funciona orientado a objetivos é mais flexível do que um agente reativo.
 
