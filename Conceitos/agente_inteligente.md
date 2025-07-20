@@ -1,7 +1,6 @@
 # Agente Inteligente
 
-> Aqui, discutimos a natureza dos agentes, a diversidade de
-ambientes e a consequente variedade de tipos de agentes.
+> Aqui, discutimos a natureza dos agentes.
 
 ---
 ## O que é um Agente?
@@ -17,16 +16,19 @@ pacotes de rede como entradas sensórias e atua sobre o ambiente exibindo algo n
 em arquivos e enviando pacotes de rede.
 
 Usamos o termo percepção para fazer referência às entradas do agente em um dado
-instante. A sequência de percepções do agente é a história completa de tudo o que o agente já percebeu.
+instante.
 
 Em termos matemáticos, afirmamos que o
-comportamento do agente é descrito pela função do agente que mapeia qualquer sequência de
-percepções específica para uma ação.
+comportamento do agente é descrito pela função do agente, que mapeia qualquer sequência de
+percepções para uma ação.
 
 A função de agente é uma descrição matemática abstrata; o
 programa do agente é uma implementação concreta, executada em um sistema físico.
 
-O mundo de aspirador de pó. Esse mundo é tão simples que podemos descrever tudo o que acontece. Esse mundo particular tem apenas dois locais: os quadrados A e B. O agente aspirador de pó percebe em que quadrado está e se existe sujeira no quadrado. Ele pode optar por mover-se para a esquerda, mover-se para a direita, aspirar a sujeira ou não fazer nada.
+---
+## O mundo do Agente Aspirador de Pó
+
+Esse mundo é tão simples que podemos descrever tudo o que acontece. Esse mundo particular tem apenas dois locais: os quadrados A e B. O agente aspirador de pó percebe em que quadrado está e se existe sujeira no quadrado. Ele pode optar por mover-se para a esquerda, mover-se para a direita, aspirar a sujeira ou não fazer nada.
 
 Uma função do agente muito simples é: se o quadrado
 atual estiver sujo, então aspirar, caso contrário mover-se para o outro quadrado.
@@ -58,9 +60,8 @@ A definição do que é racional depende de quatro fatores:
 - A sequência de percepções do agente até o momento.
 
 Isso conduz a uma definição de um agente racional:
-> Para cada sequência de percepções possível, um agente racional deve selecionar uma
-ação que se espera venha a maximizar sua medida de desempenho, dada a evidência fornecida
-pela sequência de percepções e por qualquer conhecimento interno do agente.
+> Um agente racional é aquele que, dada uma sequência de percepções, toma a ação que se espera
+que venha maximizar sua medida de desempenho.
 
 Ou seja, para dizermos se um agente é racional ou não, precisamos dizer o que é a medida de
 desempenho, o que se conhece sobre o ambiente e quais são os sensores e atuadores que o agente
