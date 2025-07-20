@@ -28,20 +28,36 @@ Um algoritmo é ótimo (ou ótimo em custo) se ele sempre encontra a melhor solu
   * *Complexidade de tempo*: $O(b^{d})$.
   * *Complexidade de espaço*: $O(b^{d})$.
 
-```pseudo
-BFS(problem):
-  frontier ← Fila contendo o nó inicial
-  explored ← ∅
-  while frontier não vazio:
-    node ← frontier.remover()
-    if node.estado é objetivo:
-      return solução(node)
-    explored.adicionar(node.estado)
-    for ação in problem.acoes(node.estado):
-      filho ← resultado(node, ação)
-      if filho.estado não está em explored ou frontier:
-        frontier.adicionar(filho)
-  return falha
+```python
+from collections import deque
+
+def bfs(inicio, objetivo, vizinhos):
+    """
+    inicio: estado inicial
+    objetivo: função que testa se o estado é objetivo
+    vizinhos: função que retorna os vizinhos de um estado
+    """
+    fronteira = deque([inicio])        # Fila FIFO
+    visitados = set([inicio])
+    pai = {inicio: None}               # Para reconstruir o caminho
+
+    while fronteira:
+        atual = fronteira.popleft()
+
+        if objetivo(atual):
+            caminho = []
+            while atual is not None:
+                caminho.append(atual)
+                atual = pai[atual]
+            return list(reversed(caminho))
+
+        for viz in vizinhos(atual):
+            if viz not in visitados:
+                visitados.add(viz)
+                fronteira.append(viz)
+                pai[viz] = atual
+
+    return None  # Falha
 ```
 
 ---
@@ -60,26 +76,38 @@ BFS(problem):
 
 * **DFS Limitada**: Define um limite de profundidade $l$ para evitar loops.
 
-```pseudo
-DFS_Limitada(node, limit):
-  if node.estado é objetivo:
-    return solução(node)
-  else if limit = 0:
-    return corte
-  else:
-    algum_corte ← false
-    for ação in acoes(node.estado):
-      filho ← resultado(node, ação)
-      resultado ← DFS_Limitada(filho, limit − 1)
-      if resultado não é falha:
-        return resultado
-      if resultado é corte:
-        algum_corte ← true
-    return corte se algum_corte senão falha
+```python
+def dfs(inicio, objetivo, vizinhos):
+    """
+    inicio: estado inicial
+    objetivo: função que testa se o estado é objetivo
+    vizinhos: função que retorna os vizinhos de um estado
+    """
+    pilha = [inicio]                  # Pilha LIFO
+    visitados = set([inicio])
+    pai = {inicio: None}
+
+    while pilha:
+        atual = pilha.pop()
+
+        if objetivo(atual):
+            caminho = []
+            while atual is not None:
+                caminho.append(atual)
+                atual = pai[atual]
+            return list(reversed(caminho))
+
+        for viz in vizinhos(atual):
+            if viz not in visitados:
+                visitados.add(viz)
+                pilha.append(viz)
+                pai[viz] = atual
+
+    return None  # Falha
 ```
 
 ---
-## 5. Comparação de Algoritmos
+## 4. Comparação de Algoritmos
 
 | Algoritmo | Completo? | Ótimo? | Tempo                   | Espaço                  |
 | --------- | --------- | ------ | ----------------------- | ----------------------- |
