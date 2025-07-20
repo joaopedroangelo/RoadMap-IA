@@ -4,11 +4,6 @@
 
 ---
 
-Descrevemos os programas de agente (em termos de muito alto nível) consistindo de vários
-componentes cuja função é responder a perguntas como: “Como o mundo está agora?”, “Que ações
-devo tomar?”, “O que minhas ações realizam?”. A próxima pergunta para um estudante de IA é:
-“Como funcionam esses componentes?”
-
 ![alt text](../Imagens/OrganizacaoDoProgramaDoAgente.png)
 
 ---
