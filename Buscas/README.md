@@ -1,4 +1,4 @@
-# Estratégias de Busca — Capítulo 2
+# Estratégias de Busca
 
 Este diretório apresenta os principais algoritmos de busca em Inteligência Artificial, abordando tanto técnicas não informadas (cegas) quanto informadas (heurísticas), além de técnicas de busca competitiva.
 
